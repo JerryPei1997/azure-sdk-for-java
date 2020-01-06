@@ -22,7 +22,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class ManagedIdentityCredentialLiveTest {
-    private static final String AZURE_VAULT_URL = "AZURE_VAULT_URL";
+    private static final String AZURE_VAULT_URL = "https://pod-kv-0106.vault.azure.net";
     private static final String VAULT_SECRET_NAME = "secret";
     private static final Configuration CONFIGURATION = Configuration.getGlobalConfiguration().clone();
 
@@ -154,12 +154,10 @@ public class ManagedIdentityCredentialLiveTest {
         ManagedIdentityCredential credential = new ManagedIdentityCredentialBuilder()
             .clientId(CONFIGURATION.get(Configuration.PROPERTY_AZURE_CLIENT_ID))
             .build();
-
-        System.out.print(CONFIGURATION.get(AZURE_VAULT_URL));
         
         SecretClient client = new SecretClientBuilder()
             .credential(credential)
-            .vaultUrl("https://pod-kv-0106.vault.azure.net")
+            .vaultUrl(CONFIGURATION.get(AZURE_VAULT_URL))
             .buildClient();
 
         KeyVaultSecret secret = client.getSecret(VAULT_SECRET_NAME);
