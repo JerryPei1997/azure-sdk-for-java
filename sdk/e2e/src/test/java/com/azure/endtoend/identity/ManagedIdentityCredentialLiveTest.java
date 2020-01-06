@@ -22,7 +22,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 public class ManagedIdentityCredentialLiveTest {
-    private static final String AZURE_VAULT_URL = "AZURE_VAULT_URL";
+    private static final String AZURE_VAULT_URL = "https://pod-kv-0106.vault.azure.net";
     private static final String VAULT_SECRET_NAME = "secret";
     private static final Configuration CONFIGURATION = Configuration.getGlobalConfiguration().clone();
 
