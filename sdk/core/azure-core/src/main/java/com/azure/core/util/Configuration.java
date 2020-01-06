@@ -65,6 +65,7 @@ public class Configuration implements Cloneable {
      */
     public static final String PROPERTY_AZURE_CLIENT_ID = "AZURE_CLIENT_ID";
 
+    public static final String AZURE_VAULT_URL = "AZURE_VAULT_URL";
     /**
      * Client secret to use when performing service principal authentication with Azure.
      */
