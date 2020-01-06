@@ -155,9 +155,11 @@ public class ManagedIdentityCredentialLiveTest {
             .clientId(CONFIGURATION.get(Configuration.PROPERTY_AZURE_CLIENT_ID))
             .build();
 
+        System.out.print(CONFIGURATION.get(AZURE_VAULT_URL));
+        
         SecretClient client = new SecretClientBuilder()
             .credential(credential)
-            .vaultUrl(CONFIGURATION.get(AZURE_VAULT_URL))
+            .vaultUrl("https://pod-kv-0106.vault.azure.net")
             .buildClient();
 
         KeyVaultSecret secret = client.getSecret(VAULT_SECRET_NAME);
